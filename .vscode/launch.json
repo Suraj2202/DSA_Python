@@ -1,0 +1,22 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Current File",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Run with Arguments",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${file}",
+      "args": [],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
+}
