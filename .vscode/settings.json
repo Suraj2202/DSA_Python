@@ -10,6 +10,8 @@
   },
   "python.analysis.typeCheckingMode": "basic",
   "python.analysis.autoImportCompletions": true,
+  "github.copilot.editor.enableAutoCompletions": false,
+  "editor.inlineSuggest.enabled": false,
   "editor.rulers": [79],
   "files.exclude": {
     "**/__pycache__": true,

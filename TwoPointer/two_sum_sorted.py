@@ -1,33 +1,67 @@
-# Two Pointers — Two Sum II (sorted array)
-# LeetCode 167 | Difficulty: Medium
-#
-# Problem:
-#   Given a 1-indexed sorted array `numbers` and a target,
-#   return indices [i, j] such that numbers[i] + numbers[j] == target.
-#
-# Approach: Two Pointers — O(n) time, O(1) space
-
-from typing import List
+"""
+Worked Example: Two Sum on a Sorted Array
+Problem:        Given a sorted array arr and a target T, 
+                find if there exist two numbers that add up to T.
+"""
+from ctypes import pointer
 
 
-def two_sum(numbers: List[int], target: int) -> List[int]:
-    left, right = 0, len(numbers) - 1
+arr = [2, 7, 11, 15, 18]
+target = 29
+print("Printed locations of arr")
+# Brute Force (what most people write first)
 
+
+def two_sum_brute_force(arr, target):
+    n = len(arr)
+    for i in range(n):
+        for j in range(i + 1, n):
+            if arr[i] + arr[j] == target:
+                return (i, j)
+    return None
+
+
+# Complexity: O(n²) — nested loop checking every pair.
+res = two_sum_brute_force(arr, target)
+print(f"Brute Force: {res}")
+
+# Optimized with Two Pointers (Flavor A)
+"""
+Because the array is sorted, we can be smart:
+
+Start left at 0, right at the end
+If arr[left] + arr[right] is too small → we need a bigger sum → move left forward
+If it's too big → move right backward
+If equal → found it
+"""
+
+# Optimized with Two Pointers
+
+
+def two_sum_two_pointers(arr, target):
+    left, right = 0, len(arr)-1
     while left < right:
-        current_sum = numbers[left] + numbers[right]
-        if current_sum == target:
-            return [left + 1, right + 1]   # 1-indexed
-        elif current_sum < target:
+        sum = arr[left]+arr[right]
+
+        if sum < target:
             left += 1
-        else:
+        elif sum > target:
             right -= 1
+        else:
+            return (left, right)
+    return None
 
-    return []   # no solution (guaranteed by problem constraints)
 
+# Complexity O(n) — each pointer moves at most n times total, no nested loop.
+pointer_res = two_sum_two_pointers(arr, target)
+print(f"Two Pointer: {pointer_res}")
 
-# ── Tests ────────────────────────────────────────────────────────────────────
-if __name__ == "__main__":
-    assert two_sum([2, 7, 11, 15], 9)  == [1, 2]
-    assert two_sum([2, 3, 4], 6)       == [1, 3]
-    assert two_sum([-1, 0], -1)        == [1, 2]
-    print("All tests passed!")
+# Why it works:
+"""
+because the array is sorted, 
+moving left forward can only increase the sum, 
+and moving right backward can only decrease it. 
+
+That monotonic property is what lets us safely discard half the "pairs" at each step 
+without checking them individually — that's the real reason it beats O(n²).
+"""
