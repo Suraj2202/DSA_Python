@@ -21,7 +21,7 @@
 | ✅     | 2090 | K Radius Subarray Averages                     | Fixed            | Medium     |
 | ⬜     | 904  | Fruit Into Baskets                             | Variable         | Medium     |
 | ⬜     | 424  | Longest Repeating Character Replacement        | Variable         | Medium     |
-| ⬜     | 567  | Permutation in String                          | Fixed + Variable | Medium     |
+| ✅     | 567  | Permutation in String                          | Fixed + Variable | Medium     |
 | ⬜     | 438  | Find All Anagrams in a String                  | Fixed + Variable | Medium     |
 | ⬜     | 76   | Minimum Window Substring                       | Variable         | Hard       |
 | ⬜     | 239  | Sliding Window Maximum                         | Fixed            | Hard       |
@@ -36,7 +36,7 @@
 | ✅     | 1456 | Maximum Number of Vowels in a Substring | Medium     | fixed/LeetCode/1456 Maximum Number of Vowels in a Substring.py |
 | ✅     | 1652 | Defuse the Bomb                         | Medium     | fixed/LeetCode/1652 Defuse the Bomb.py                         |
 | ✅     | 2090 | K Radius Subarray Averages              | Medium     | fixed/LeetCode/2090 K Radius Subarray Averages.py              |
-| ⬜     | 567  | Permutation in String                   | Medium     | fixed/LeetCode/567 Permutation in String.py                    |
+| ✅     | 567  | Permutation in String                   | Medium     | fixed/LeetCode/567 Permutation in String.py                    |
 | ⬜     | 438  | Find All Anagrams in a String           | Medium     | fixed/LeetCode/438 Find All Anagrams in a String.py            |
 | ⬜     | 239  | Sliding Window Maximum                  | Hard       | fixed/LeetCode/239 Sliding Window Maximum.py                   |
 
