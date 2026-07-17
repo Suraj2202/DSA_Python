@@ -17,11 +17,33 @@ s3, k3 = "leetcode",  3   # Expected: 2
 
 # region Methods
 def brute_force_max_vowels(s, k):
-    pass
+    vowels = 'aeiou'
+    max_num = 0
+    for left in range(len(s)-k+1):
+        vowelCount = 0
+        for right in range(left, left+k):
+            if s[right] in vowels:
+                vowelCount += 1
+
+        max_num = max(max_num, vowelCount)
+    return max_num
 
 
 def fixed_sliding_window_max_vowels(s, k):
-    pass
+    vowel = 'aeiou'
+    VowelCount = 0
+    max_num = 0
+    for right in range(len(s)):
+        if s[right] in vowel:
+            VowelCount += 1
+
+        if right >= k and s[right-k] in vowel:
+            VowelCount -= 1
+
+        max_num = max(max_num, VowelCount)
+
+    return max_num
+
 # endregion
 
 

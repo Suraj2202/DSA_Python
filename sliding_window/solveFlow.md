@@ -16,9 +16,9 @@
 | ✅     | 209  | Minimum Size Subarray Sum                      | Variable         | Medium     |
 | ⬜     | 3    | Longest Substring Without Repeating Characters | Variable         | Medium     |
 | ⬜     | 1004 | Max Consecutive Ones III                       | Variable         | Medium     |
-| ⬜     | 1456 | Maximum Number of Vowels in a Substring        | Fixed            | Medium     |
-| ⬜     | 1652 | Defuse the Bomb                                | Fixed            | Medium     |
-| ⬜     | 2090 | K Radius Subarray Averages                     | Fixed            | Medium     |
+| ✅     | 1456 | Maximum Number of Vowels in a Substring        | Fixed            | Medium     |
+| ✅     | 1652 | Defuse the Bomb                                | Fixed            | Medium     |
+| ✅     | 2090 | K Radius Subarray Averages                     | Fixed            | Medium     |
 | ⬜     | 904  | Fruit Into Baskets                             | Variable         | Medium     |
 | ⬜     | 424  | Longest Repeating Character Replacement        | Variable         | Medium     |
 | ⬜     | 567  | Permutation in String                          | Fixed + Variable | Medium     |
@@ -33,9 +33,9 @@
 | Status | #    | Problem                                 | Difficulty | File                                                           |
 | ------ | ---- | --------------------------------------- | ---------- | -------------------------------------------------------------- |
 | ✅     | 643  | Maximum Average Subarray I              | Easy       | fixed/LeetCode/643 Maximum Average Subarray I.py               |
-| ⬜     | 1456 | Maximum Number of Vowels in a Substring | Medium     | fixed/LeetCode/1456 Maximum Number of Vowels in a Substring.py |
-| ⬜     | 1652 | Defuse the Bomb                         | Medium     | fixed/LeetCode/1652 Defuse the Bomb.py                         |
-| ⬜     | 2090 | K Radius Subarray Averages              | Medium     | fixed/LeetCode/2090 K Radius Subarray Averages.py              |
+| ✅     | 1456 | Maximum Number of Vowels in a Substring | Medium     | fixed/LeetCode/1456 Maximum Number of Vowels in a Substring.py |
+| ✅     | 1652 | Defuse the Bomb                         | Medium     | fixed/LeetCode/1652 Defuse the Bomb.py                         |
+| ✅     | 2090 | K Radius Subarray Averages              | Medium     | fixed/LeetCode/2090 K Radius Subarray Averages.py              |
 | ⬜     | 567  | Permutation in String                   | Medium     | fixed/LeetCode/567 Permutation in String.py                    |
 | ⬜     | 438  | Find All Anagrams in a String           | Medium     | fixed/LeetCode/438 Find All Anagrams in a String.py            |
 | ⬜     | 239  | Sliding Window Maximum                  | Hard       | fixed/LeetCode/239 Sliding Window Maximum.py                   |

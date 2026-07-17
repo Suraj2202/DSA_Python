@@ -12,7 +12,7 @@
   "python.analysis.autoImportCompletions": true,
   "github.copilot.editor.enableAutoCompletions": false,
   "editor.inlineSuggest.enabled": false,
-  "editor.rulers": [79],
+  "editor.rulers": [],
   "files.exclude": {
     "**/__pycache__": true,
     "**/*.pyc": true

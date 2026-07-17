@@ -24,11 +24,45 @@ nums3, k3 = [8],                     100000   # Expected: [-1]
 
 # region Methods
 def brute_force_k_radius_subarray_averages(nums, k):
-    pass
+    n = len(nums)
+    window_size = 2 * k + 1
+    result = [-1] * n
+
+    if window_size > n:
+        return result
+
+    for i in range(k, n - k):
+        current_sum = 0
+
+        for j in range(i - k, i + k + 1):
+            current_sum += nums[j]
+
+        result[i] = current_sum // window_size
+
+    return result
 
 
 def fixed_sliding_window_k_radius_subarray_averages(nums, k):
-    pass
+    window = 2*k+1
+    length = len(nums)
+    result = [-1]*length
+
+    if window > length:
+        return result
+
+    sum_num = 0
+    left = 0
+
+    for right in range(length):
+        sum_num += nums[right]
+        if right >= window-1:
+            result[right-k] = sum_num//window
+
+            sum_num -= nums[left]
+            left += 1
+
+    return result
+
 # endregion
 
 
