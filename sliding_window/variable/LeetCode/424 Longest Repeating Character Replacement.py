@@ -11,19 +11,50 @@ performing the above operations.
 """
 
 # region Inputs
-s1, k1 = "ABAB",    2   # Expected: 4
-s2, k2 = "AABABBA", 1   # Expected: 4
-s3, k3 = "AAAA",    0   # Expected: 4
+s1, k1 = "ABAB", 2  # Expected: 4
+s2, k2 = "AABABBA", 1  # Expected: 4
+s3, k3 = "AAAA", 0  # Expected: 4
 # endregion
 
 
 # region Methods
 def brute_force_longest_repeating_character_replacement(s, k):
-    pass
+    max_count = 0
+    for l in range(len(s)):
+        check = 0
+        r = l
+        while r < len(s):
+            if s[l] != s[r] and check == k:
+                break
+
+            if s[l] != s[r]:
+                check += 1
+            r += 1
+
+        max_count = max(max_count, r - l)
+
+    return max_count
 
 
 def variable_sliding_window_longest_repeating_character_replacement(s, k):
-    pass
+    l = 0
+    max_count = 0
+    check_freq = {}
+    max_char_freq = 0
+
+    for r in range(len(s)):
+        check_freq[s[r]] = check_freq.get(s[r], 0) + 1
+        max_char_freq = max(max_char_freq, check_freq[s[r]])
+        current_window = r - l + 1
+        if current_window - max_char_freq > k:
+            check_freq[s[l]] -= 1
+            l += 1
+
+        max_count = max(max_count, current_window)
+
+    return max_count
+
+
 # endregion
 
 
@@ -32,12 +63,9 @@ brute1 = brute_force_longest_repeating_character_replacement(s1, k1)
 brute2 = brute_force_longest_repeating_character_replacement(s2, k2)
 brute3 = brute_force_longest_repeating_character_replacement(s3, k3)
 
-sliding1 = variable_sliding_window_longest_repeating_character_replacement(
-    s1, k1)
-sliding2 = variable_sliding_window_longest_repeating_character_replacement(
-    s2, k2)
-sliding3 = variable_sliding_window_longest_repeating_character_replacement(
-    s3, k3)
+sliding1 = variable_sliding_window_longest_repeating_character_replacement(s1, k1)
+sliding2 = variable_sliding_window_longest_repeating_character_replacement(s2, k2)
+sliding3 = variable_sliding_window_longest_repeating_character_replacement(s3, k3)
 # endregion
 
 

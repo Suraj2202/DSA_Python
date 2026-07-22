@@ -20,7 +20,7 @@
 | ✅     | 1652 | Defuse the Bomb                                | Fixed            | Medium     |
 | ✅     | 2090 | K Radius Subarray Averages                     | Fixed            | Medium     |
 | ✅     | 904  | Fruit Into Baskets                             | Variable         | Medium     |
-| ⬜     | 424  | Longest Repeating Character Replacement        | Variable         | Medium     |
+| ✅     | 424  | Longest Repeating Character Replacement        | Variable         | Medium     |
 | ✅     | 567  | Permutation in String                          | Fixed + Variable | Medium     |
 | ✅     | 438  | Find All Anagrams in a String                  | Fixed + Variable | Medium     |
 | ⬜     | 76   | Minimum Window Substring                       | Variable         | Hard       |
@@ -50,7 +50,7 @@
 | ✅     | 3    | Longest Substring Without Repeating Characters | Medium     | variable/LeetCode/3 Longest Substring Without Repeating Characters.py |
 | ✅     | 1004 | Max Consecutive Ones III                       | Medium     | variable/LeetCode/1004 Max Consecutive Ones III.py                    |
 | ✅     | 904  | Fruit Into Baskets                             | Medium     | variable/LeetCode/904 Fruit Into Baskets.py                           |
-| ⬜     | 424  | Longest Repeating Character Replacement        | Medium     | variable/LeetCode/424 Longest Repeating Character Replacement.py      |
+| ✅     | 424  | Longest Repeating Character Replacement        | Medium     | variable/LeetCode/424 Longest Repeating Character Replacement.py      |
 | ⬜     | 567  | Permutation in String                          | Medium     | variable/LeetCode/567 Permutation in String.py                        |
 | ⬜     | 438  | Find All Anagrams in a String                  | Medium     | variable/LeetCode/438 Find All Anagrams in a String.py                |
 | ⬜     | 76   | Minimum Window Substring                       | Hard       | variable/LeetCode/76 Minimum Window Substring.py                      |
