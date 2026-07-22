@@ -16,19 +16,51 @@ Given the integer array fruits, return the maximum number of fruits you can pick
 """
 
 # region Inputs
-fruits1 = [1, 2, 1]         # Expected: 3
-fruits2 = [0, 1, 2, 2]      # Expected: 3
-fruits3 = [1, 2, 3, 2, 2]   # Expected: 4
+fruits1 = [1, 2, 1]  # Expected: 3
+fruits2 = [0, 1, 2, 2]  # Expected: 3
+fruits3 = [1, 2, 3, 2, 2]  # Expected: 4
 # endregion
 
 
 # region Methods
 def brute_force_fruit_into_baskets(fruits):
-    pass
+    basket = set()
+    max_count = 0
+
+    for l in range(len(fruits)):
+        r = l
+        while r < len(fruits):
+            if fruits[r] not in basket and len(basket) == 2:
+                break
+
+            basket.add(fruits[r])
+
+            r += 1
+
+        max_count = max(max_count, r - l)
+        basket.clear()
+    return max_count
 
 
 def variable_sliding_window_fruit_into_baskets(fruits):
-    pass
+    max_count = 0
+    basket = {}
+    l = 0
+    for r in range(len(fruits)):
+        basket[fruits[r]] = basket.get(fruits[r], 0) + 1
+
+        while len(basket) > 2:
+            basket[fruits[l]] -= 1
+
+            if basket[fruits[l]] == 0:
+                del basket[fruits[l]]
+
+            l += 1
+        max_count = max(max_count, r - l + 1)
+
+    return max_count
+
+
 # endregion
 
 

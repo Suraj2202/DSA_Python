@@ -1,0 +1,5 @@
+# Keep workspace clean for Python formatting
+.vscode
+node_modules
+dist
+coverage

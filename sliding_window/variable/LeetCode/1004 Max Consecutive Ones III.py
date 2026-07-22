@@ -7,20 +7,49 @@ in the array if you can flip at most k 0's.
 """
 
 # region Inputs
-nums1, k1 = [1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0], 2   # Expected: 6
-nums2, k2 = [0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1,
-             1, 0, 0, 0, 1, 1, 1, 1], 3   # Expected: 10
-nums3, k3 = [1, 1, 1],                              0   # Expected: 3
+nums1, k1 = [1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0], 2  # Expected: 6
+nums2, k2 = [0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1], 3  # Expected: 10
+nums3, k3 = [1, 1, 1], 0  # Expected: 3
 # endregion
 
 
 # region Methods
 def brute_force_max_consecutive_ones(nums, k):
-    pass
+    max_count = 0
+    n = len(nums)
+    for l in range(n):
+        zero_count = 0
+        r = l
+        while r < n:
+            if nums[r] == 0:
+                zero_count += 1
+
+            if zero_count > k:
+                break
+            r += 1
+        max_count = max(max_count, r - l)
+
+    return max_count
 
 
 def variable_sliding_window_max_consecutive_ones(nums, k):
-    pass
+    n = len(nums)
+    l = 0
+    max_count = 0
+    zero_count = 0
+    for r in range(n):
+        if nums[r] == 0:
+            zero_count += 1
+
+        while zero_count > k:
+            if nums[l] == 0:
+                zero_count -= 1
+            l += 1
+        max_count = max(max_count, r - l + 1)
+
+    return max_count
+
+
 # endregion
 
 

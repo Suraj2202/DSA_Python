@@ -1,0 +1,11 @@
+{
+  "name": "dsa-python",
+  "private": true,
+  "devDependencies": {
+    "black": "^24.10.0"
+  },
+  "scripts": {
+    "format": "black .",
+    "format:check": "black --check ."
+  }
+}
