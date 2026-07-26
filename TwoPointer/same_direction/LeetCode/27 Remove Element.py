@@ -14,20 +14,31 @@ Note: Also a Fast & Slow Pointer pattern — slow tracks insert position, fast s
 """
 
 # region Inputs
-nums1, val1 = [3, 2, 2, 3],          3   # Expected: 2  (nums = [2, 2, ...])
+nums1, val1 = [3, 2, 2, 3], 3  # Expected: 2  (nums = [2, 2, ...])
 # Expected: 5  (nums = [0,1,3,0,4,...])
 nums2, val2 = [0, 1, 2, 2, 3, 0, 4, 2], 2
-nums3, val3 = [1],                   1   # Expected: 0
+nums3, val3 = [1], 1  # Expected: 0
 # endregion
 
 
 # region Methods
 def brute_force_remove_element(nums, val):
-    pass
+    res = []
+    for x in nums:
+        if x != val:
+            res.append(x)
+    return len(res)
 
 
 def two_pointer_remove_element(nums, val):
-    pass
+    point = 0
+    for read in range(len(nums)):
+        if nums[read] != val:
+            nums[point] = nums[read]
+            point += 1
+    return point
+
+
 # endregion
 
 

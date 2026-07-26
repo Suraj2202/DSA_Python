@@ -15,20 +15,32 @@ Note: Also a Fast & Slow Pointer pattern — slow marks the last unique position
 """
 
 # region Inputs
-nums1 = [1, 1, 2]                      # Expected: 2  (nums = [1, 2, ...])
+nums1 = [1, 1, 2]  # Expected: 2  (nums = [1, 2, ...])
 # Expected: 5  (nums = [0,1,2,3,4,...])
 nums2 = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
-nums3 = [1]                            # Expected: 1
+nums3 = [1]  # Expected: 1
 # endregion
 
 
 # region Methods
 def brute_force_remove_duplicates(nums):
-    pass
+    res = []
+
+    for x in nums:
+        if x not in res:
+            res.append(x)
+    return len(res), res
 
 
 def two_pointer_remove_duplicates(nums):
-    pass
+    write = 1
+    for current in range(1, len(nums)):
+        if nums[current] != nums[write - 1]:
+            nums[write]=nums[current]
+            write +=1
+    return write, nums[:write]
+
+
 # endregion
 
 

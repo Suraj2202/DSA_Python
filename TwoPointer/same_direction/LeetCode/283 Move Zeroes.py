@@ -11,19 +11,32 @@ Note: Also a Fast & Slow Pointer pattern — slow tracks insert position, fast f
 """
 
 # region Inputs
-nums1 = [0, 1, 0, 3, 12]   # Expected: [1, 3, 12, 0, 0]
-nums2 = [0]                # Expected: [0]
-nums3 = [1, 0, 0, 1]       # Expected: [1, 1, 0, 0]
+nums1 = [0, 1, 0, 3, 12]  # Expected: [1, 3, 12, 0, 0]
+nums2 = [0]  # Expected: [0]
+nums3 = [1, 0, 0, 1]  # Expected: [1, 1, 0, 0]
 # endregion
 
 
 # region Methods
 def brute_force_move_zeroes(nums):
-    pass
+    res = [0] * len(nums)
+    write = 0
+    for x in nums:
+        if x != 0:
+            res[write] = x
+            write += 1
+    return res
 
 
 def two_pointer_move_zeroes(nums):
-    pass
+    zeroPoint = 0
+    for current in range(len(nums)):
+        if nums[current] !=0:
+            nums[zeroPoint],nums[current]=nums[current], nums[zeroPoint]
+            zeroPoint+=1
+    return nums
+
+
 # endregion
 
 
