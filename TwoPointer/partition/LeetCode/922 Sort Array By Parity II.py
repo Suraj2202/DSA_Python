@@ -11,7 +11,7 @@ Return any answer array that satisfies this condition.
 # region Inputs
 # Expected: [4, 5, 2, 7]  (any valid even/odd index placement)
 nums1 = [4, 2, 5, 7]
-nums2 = [2, 3]         # Expected: [2, 3]
+nums2 = [2, 3]  # Expected: [2, 3]
 # Expected: [0, 1, 2, 3]  (any valid even/odd index placement)
 nums3 = [0, 1, 2, 3]
 # endregion
@@ -19,11 +19,51 @@ nums3 = [0, 1, 2, 3]
 
 # region Methods
 def brute_force_sort_array_by_parity_ii(nums):
-    pass
+    even, odd = 0, 1
+    result = [0] * len(nums)
+    for x in nums:
+        if x % 2 == 0:
+            result[even] = x
+            even += 2
+        else:
+            result[odd] = x
+            odd += 2
+    return result
 
 
 def two_pointer_sort_array_by_parity_ii(nums):
-    pass
+    even, odd = -1, -1
+    for i in range(len(nums)):
+        if i % 2 == 0 and nums[i] % 2 != 0:
+            even = i
+        elif i % 2 != 0 and nums[i] % 2 == 0:
+            odd = i
+        if even > -1 and odd > -1:
+            nums[even], nums[odd] = nums[odd], nums[even]
+            even, odd = -1, -1
+    return nums
+
+
+### Better approach of code
+
+
+def two_pointer_sort_array_by_parity_ii_better_version(nums):
+    even = 0
+    odd = 1
+
+    while even < len(nums) and odd < len(nums):
+        if nums[even] % 2 == 0:
+            even += 2
+        elif nums[odd] % 2 == 1:
+            odd += 2
+        else:
+            nums[even], nums[odd] = nums[odd], nums[even]
+            even += 2
+            odd += 2
+
+    return nums
+
+
 # endregion
 
 

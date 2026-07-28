@@ -12,19 +12,37 @@ Notice that you may not slant the container.
 """
 
 # region Inputs
-height1 = [1, 8, 6, 2, 5, 4, 8, 3, 7]   # Expected: 49
-height2 = [1, 1]                          # Expected: 1
-height3 = [4, 3, 2, 1, 4]                # Expected: 16
+height1 = [1, 8, 6, 2, 5, 4, 8, 3, 7]  # Expected: 49
+height2 = [1, 1]  # Expected: 1
+height3 = [4, 3, 2, 1, 4]  # Expected: 16
 # endregion
 
 
 # region Methods
 def brute_force_container_with_most_water(height):
-    pass
+    max_area = 0
+    for i in range(len(height)):
+        for j in range(i + 1, len(height)):
+            area = (j - i) * (min(height[i], height[j]))
+            max_area = max(max_area, area)
+    return max_area
 
 
 def two_pointer_container_with_most_water(height):
-    pass
+    l, r = 0, len(height) - 1
+    max_area = 0
+
+    while l < r:
+        area = min(height[l], height[r]) * (r - l)
+        max_area = max(max_area, area)
+
+        if height[l] < height[r]:
+            l += 1
+        else:
+            r -= 1
+    return max_area
+
+
 # endregion
 
 

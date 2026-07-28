@@ -9,19 +9,37 @@ Return any array that satisfies this condition.
 """
 
 # region Inputs
-nums1 = [3, 1, 2, 4]   # Expected: [2, 4, 3, 1]  (any valid even-first order)
-nums2 = [0]            # Expected: [0]
-nums3 = [1, 3, 2, 4]   # Expected: [2, 4, 1, 3]  (any valid even-first order)
+nums1 = [3, 1, 2, 4]  # Expected: [2, 4, 3, 1]  (any valid even-first order)
+nums2 = [0]  # Expected: [0]
+nums3 = [1, 3, 2, 4]  # Expected: [2, 4, 1, 3]  (any valid even-first order)
 # endregion
 
 
 # region Methods
 def brute_force_sort_array_by_parity(nums):
-    pass
+    result = [0] * len(nums)
+
+    # Insert will have n complexity, as it will shift that many item
+    left, right = 0, -1
+    for x in nums:
+        if x % 2 == 0:
+            result[left] = x
+            left += 1
+        else:
+            result[right] = x
+            right -= 1
+    return result
 
 
 def two_pointer_sort_array_by_parity(nums):
-    pass
+    left = 0
+    for right in range(len(nums)):
+        if nums[right] % 2 == 0:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
+    return nums
+
+
 # endregion
 
 

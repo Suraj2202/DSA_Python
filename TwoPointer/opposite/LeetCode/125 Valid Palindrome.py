@@ -10,19 +10,39 @@ Given a string s, return true if it is a palindrome, or false otherwise.
 """
 
 # region Inputs
-s1 = "A man, a plan, a canal: Panama"   # Expected: True
-s2 = "race a car"                       # Expected: False
-s3 = " "                                # Expected: True
+s1 = "A man, a plan, a canal: Panama"  # Expected: True
+s2 = "race a car"  # Expected: False
+s3 = " "  # Expected: True
 # endregion
 
 
 # region Methods
 def brute_force_valid_palindrome(s):
-    pass
+    clean = "".join(x.lower() for x in s if x.isalnum())
+    rev = []
+    for i in range(len(clean) - 1, -1, -1):
+        rev.append(clean[i])
+    if "".join(rev) == clean:
+        return True
+    return False
 
 
 def two_pointer_valid_palindrome(s):
-    pass
+    left, right = 0, len(s) - 1
+    print(s)
+    while left < right:
+        while left < right and not s[left].isalnum():
+            left += 1
+        while left < right and not s[right].isalnum():
+            right -= 1
+        if s[left].lower() != s[right].lower():
+            return False
+        left += 1
+        right -= 1
+
+    return True
+
+
 # endregion
 
 

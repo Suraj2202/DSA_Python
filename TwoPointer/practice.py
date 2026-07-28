@@ -5,12 +5,20 @@ s = list("hello")
 # Reverse it using two pointers, without using s[::-1] or reversed()
 
 
+def reverse_string_brute_force(s):
+    res = []
+    for i in range(len(s) - 1, -1, -1):
+        res.append(s[i])
+    print("".join(res))
+
+
+reverse_string_brute_force(s[:])
+
+
 def reverse_string(s):
-    left, right = 0, len(s)-1
+    left, right = 0, len(s) - 1
     while left < right:
-        temp = s[left]
-        s[left] = s[right]
-        s[right] = temp
+        s[left], s[right] = s[right], s[left]
         left += 1
         right -= 1
 
@@ -29,7 +37,7 @@ print(f"Reverse of string: {''.join(rev_str)}")
 def is_palindrome(s):
     # e.g. "Racecar" -> True, "hello" -> False
     # Use two pointers, don't use s == s[::-1]
-    left, right = 0, len(s)-1
+    left, right = 0, len(s) - 1
     while left < right:
         if s[left].lower() != s[right].lower():
             return False
@@ -60,7 +68,8 @@ def switch_zeros_to_end_space_complex(arr):
 
 
 print(
-    f"Switch Zeros to end with high space complexity, {switch_zeros_to_end_space_complex(arr3)}")
+    f"Switch Zeros to end with high space complexity, {switch_zeros_to_end_space_complex(arr3)}"
+)
 
 # Now lets do it with O(n) inline update.
 
@@ -72,5 +81,6 @@ def switch_zeros_to_end(arr):
             arr[slow], arr[fast] = arr[fast], arr[slow]
             slow += 1
     return arr
+
 
 print(f"switch zeros to end, {switch_zeros_to_end(arr3)}")
