@@ -13,19 +13,56 @@ Note: Classic Dutch National Flag problem — uses 3-way partition with two poin
 """
 
 # region Inputs
-nums1 = [2, 0, 2, 1, 1, 0]   # Expected: [0, 0, 1, 1, 2, 2]
-nums2 = [2, 0, 1]            # Expected: [0, 1, 2]
-nums3 = [0]                  # Expected: [0]
+nums1 = [2, 0, 2, 1, 1, 0]  # Expected: [0, 0, 1, 1, 2, 2]
+nums2 = [2, 0, 1]  # Expected: [0, 1, 2]
+nums3 = [0]  # Expected: [0]
 # endregion
 
 
 # region Methods
+# Hint:
+# Count how many 0s.
+# Count how many 1s.
+# Count how many 2s.
+# Rewrite the array.
 def brute_force_sort_colors(nums):
-    pass
+    count = [0, 0, 0]
+
+    for num in nums:
+        count[num] += 1
+
+    index = 0
+
+    for color in range(3):
+        while count[color] > 0:
+            nums[index] = color
+            index += 1
+            count[color] -= 1
+
+    return nums
 
 
 def two_pointer_sort_colors(nums):
-    pass
+    low = mid = 0
+    high = len(nums) - 1
+
+    while mid <= high:
+
+        if nums[mid] == 0:
+            nums[low], nums[mid] = nums[mid], nums[low]
+            low += 1
+            mid += 1
+
+        elif nums[mid] == 1:
+            mid += 1
+
+        else:  # nums[mid] == 2
+            nums[mid], nums[high] = nums[high], nums[mid]
+            high -= 1
+
+    return nums
+
+
 # endregion
 
 

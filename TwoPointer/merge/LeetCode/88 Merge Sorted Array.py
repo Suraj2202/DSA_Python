@@ -13,22 +13,50 @@ denote the elements that should be merged, and the last n elements are set to 0 
 """
 
 # region Inputs
-nums1_1, m1, nums2_1, n1 = [1, 2, 3, 0, 0, 0], 3, [
-    2, 5, 6], 3   # Expected: [1, 2, 2, 3, 5, 6]
-nums1_2, m2, nums2_2, n2 = [
-    1],                 1, [],        0   # Expected: [1]
-nums1_3, m3, nums2_3, n3 = [0],                 0, [
-    1],       1   # Expected: [1]
+nums1_1, m1, nums2_1, n1 = (
+    [1, 2, 3, 0, 0, 0],
+    3,
+    [2, 5, 6],
+    3,
+)  # Expected: [1, 2, 2, 3, 5, 6]
+nums1_2, m2, nums2_2, n2 = [1], 1, [], 0  # Expected: [1]
+nums1_3, m3, nums2_3, n3 = [0], 0, [1], 1  # Expected: [1]
 # endregion
 
 
 # region Methods
 def brute_force_merge_sorted_array(nums1, m, nums2, n):
-    pass
+    for i in range(len(nums2)):
+        nums1[m + i] = nums2[i]
+
+    nums1.sort()
+    return nums1
 
 
 def two_pointer_merge_sorted_array(nums1, m, nums2, n):
-    pass
+    p1 = m - 1  # Last valid element in nums1
+    p2 = n - 1  # Last element in nums2
+    write = m + n - 1  # Last position in nums1
+
+    while p1 >= 0 and p2 >= 0:
+        if nums1[p1] > nums2[p2]:
+            nums1[write] = nums1[p1]
+            p1 -= 1
+        else:
+            nums1[write] = nums2[p2]
+            p2 -= 1
+
+        write -= 1
+
+    # Copy any remaining elements from nums2
+    while p2 >= 0:
+        nums1[write] = nums2[p2]
+        p2 -= 1
+        write -= 1
+
+    return nums1
+
+
 # endregion
 
 

@@ -7,19 +7,41 @@ of each number sorted in non-decreasing order.
 """
 
 # region Inputs
-nums1 = [-4, -1, 0, 3, 10]   # Expected: [0, 1, 9, 16, 100]
-nums2 = [-7, -3, 2, 3, 11]   # Expected: [4, 9, 9, 49, 121]
-nums3 = [-3, -1]              # Expected: [1, 9]
+nums1 = [-4, -1, 0, 3, 10]  # Expected: [0, 1, 9, 16, 100]
+nums2 = [-7, -3, 2, 3, 11]  # Expected: [4, 9, 9, 49, 121]
+nums3 = [-3, -1]  # Expected: [1, 9]
 # endregion
 
 
 # region Methods
 def brute_force_squares_of_sorted_array(nums):
-    pass
+    res = [0] * len(nums)
+    for i in range(len(nums)):
+        res[i] = nums[i] ** 2
+
+    res.sort()
+    return res
 
 
 def two_pointer_squares_of_sorted_array(nums):
-    pass
+    print(nums)
+    l, r = 0, len(nums) - 1
+    res = [0] * len(nums)
+    insert_pos = r
+
+    while l <= r:
+        if abs(nums[l]) > abs(nums[r]):
+            res[insert_pos] = nums[l] ** 2
+            l += 1
+            insert_pos -= 1
+        else:
+            res[insert_pos] = nums[r] ** 2
+            r -= 1
+            insert_pos -= 1
+
+    return res
+
+
 # endregion
 
 

@@ -8,19 +8,40 @@ and you may return the result in any order.
 """
 
 # region Inputs
-nums1_1, nums2_1 = [1, 2, 2, 1], [2, 2]           # Expected: [2, 2]
-nums1_2, nums2_2 = [4, 9, 5],    [9, 4, 9, 8, 4]  # Expected: [4, 9]
-nums1_3, nums2_3 = [1],          [1]               # Expected: [1]
+nums1_1, nums2_1 = [1, 2, 2, 1], [2, 2]  # Expected: [2, 2]
+nums1_2, nums2_2 = [4, 9, 5], [9, 4, 9, 8, 4]  # Expected: [4, 9]
+nums1_3, nums2_3 = [1], [1]  # Expected: [1]
 # endregion
 
 
 # region Methods
 def brute_force_intersection_of_two_arrays_ii(nums1, nums2):
-    pass
+    used = [False] * len(nums2)
+    result = []
+
+    for x in nums1:
+        for j in range(len(nums2)):
+            if not used[j] and x == nums2[j]:
+                result.append(x)
+                used[j] = True
+                break
+
+    return result
 
 
 def two_pointer_intersection_of_two_arrays_ii(nums1, nums2):
-    pass
+    nFreq, res = {}, []
+
+    for x in nums1:
+        nFreq[x] = nFreq.get(x, 0) + 1
+
+    for y in nums2:
+        if nFreq.get(y, 0) > 0:
+            res.append(y)
+            nFreq[y] -= 1
+    return res
+
+
 # endregion
 
 
