@@ -22,17 +22,36 @@ expected3 = True
 
 
 # region Methods
-def contains_duplicate(nums):
-    pass
+def contains_duplicate_direct_way(nums):
+    # Simple easy way
+    distinctSet = set(nums)
+
+    return len(nums) != len(distinctSet)
+
+
+def contains_duplicate_brute_force(nums):
+    n = len(nums)
+    for i in range(n):
+        for j in range(i + 1, n):
+            if nums[i] == nums[j]:
+                return True
+    return False
+
+
+def contains_duplicate_optimal(nums):
+    seen = set()
+    for x in nums:
+        if x in seen:
+            return True
+        seen.add(x)
+    return False
 
 
 # endregion
-
-
 # region Calls
-result1 = contains_duplicate(nums1)
-result2 = contains_duplicate(nums2)
-result3 = contains_duplicate(nums3)
+result1 = contains_duplicate_direct_way(nums1)
+result2 = contains_duplicate_direct_way(nums2)
+result3 = contains_duplicate_direct_way(nums3)
 # endregion
 
 
@@ -41,3 +60,13 @@ print("Case 1:", result1, "Expected:", expected1)
 print("Case 2:", result2, "Expected:", expected2)
 print("Case 3:", result3, "Expected:", expected3)
 # endregion
+
+print("Brute Force:")
+print(contains_duplicate_brute_force(nums1))
+print(contains_duplicate_brute_force(nums2))
+print(contains_duplicate_brute_force(nums3))
+
+print("Optimal Ways:")
+print(contains_duplicate_optimal(nums1))
+print(contains_duplicate_optimal(nums2))
+print(contains_duplicate_optimal(nums3))
